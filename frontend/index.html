@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Sudoku</h1>
+    <div class="header-controls">
+      <button id="btn-leaderboard" class="btn-secondary" aria-label="Open leaderboard">🏆 Leaderboard</button>
+      <button id="btn-theme" class="btn-icon" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Difficulty Selector -->
+    <div class="difficulty-selector" role="group" aria-label="Difficulty">
+      <button class="diff-btn active" data-difficulty="easy">Easy</button>
+      <button class="diff-btn" data-difficulty="medium">Medium</button>
+      <button class="diff-btn" data-difficulty="hard">Hard</button>
+    </div>
+
+    <!-- Timer & Actions -->
+    <div class="game-bar">
+      <span class="timer" id="timer" aria-live="polite">00:00</span>
+      <div class="game-actions">
+        <button class="btn-primary" id="btn-new">New Game</button>
+        <button class="btn-secondary" id="btn-check">Check</button>
+      </div>
+    </div>
+
+    <!-- Sudoku Board -->
+    <div class="board-wrapper">
+      <div id="board" class="board" role="grid" aria-label="Sudoku board"></div>
+      <div id="board-overlay" class="board-overlay hidden">
+        <div class="overlay-content">
+          <p id="overlay-message"></p>
+          <button class="btn-primary" id="btn-overlay-new">New Game</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number Pad -->
+    <div class="numpad" role="group" aria-label="Number input">
+      <button class="num-btn" data-num="1">1</button>
+      <button class="num-btn" data-num="2">2</button>
+      <button class="num-btn" data-num="3">3</button>
+      <button class="num-btn" data-num="4">4</button>
+      <button class="num-btn" data-num="5">5</button>
+      <button class="num-btn" data-num="6">6</button>
+      <button class="num-btn" data-num="7">7</button>
+      <button class="num-btn" data-num="8">8</button>
+      <button class="num-btn" data-num="9">9</button>
+      <button class="num-btn erase-btn" data-num="0">✕</button>
+    </div>
+  </main>
+
+  <!-- Leaderboard Modal -->
+  <div id="modal-leaderboard" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">🏆 Leaderboard</h2>
+        <button class="btn-icon modal-close" id="btn-modal-close" aria-label="Close">✕</button>
+      </div>
+      <div class="tab-bar" role="tablist">
+        <button class="tab-btn active" role="tab" data-difficulty="easy">Easy</button>
+        <button class="tab-btn" role="tab" data-difficulty="medium">Medium</button>
+        <button class="tab-btn" role="tab" data-difficulty="hard">Hard</button>
+      </div>
+      <div id="leaderboard-content" class="leaderboard-content">
+        <p class="loading">Loading…</p>
+      </div>
+    </div>
+  </div>
+  <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+
+  <!-- Submit Score Modal -->
+  <div id="modal-score" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="score-modal-title">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="score-modal-title">🎉 Puzzle Solved!</h2>
+      </div>
+      <p id="score-time-display"></p>
+      <form id="score-form" class="score-form" autocomplete="off">
+        <label for="player-name">Your name</label>
+        <input id="player-name" type="text" maxlength="32" placeholder="Enter your name" required />
+        <div class="score-form-actions">
+          <button type="submit" class="btn-primary">Submit Score</button>
+          <button type="button" class="btn-secondary" id="btn-skip-score">Skip</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
