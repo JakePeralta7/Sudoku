@@ -45,11 +45,9 @@ DB_PATH=./leaderboard.db node server.js
 The image is published to the GitHub Container Registry on every push to `main`:
 
 ```bash
-docker pull ghcr.io/<owner>/sudoku:latest
-docker run -p 3000:3000 -v sudoku-data:/data ghcr.io/<owner>/sudoku:latest
+docker pull ghcr.io/JakePeralta7/sudoku:latest
+docker run -p 3000:3000 -v sudoku-data:/data ghcr.io/JakePeralta7/sudoku:latest
 ```
-
-Replace `<owner>` with the GitHub username or organisation that owns this repository.
 
 ## API
 

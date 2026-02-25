@@ -76,9 +76,9 @@ function hasUniqueSolution(grid) {
 // ─── Generator ────────────────────────────────────────────────────────────────
 
 const CLUE_TARGETS = {
-  easy:   36,
-  medium: 28,
-  hard:   22,
+  easy:   46,
+  medium: 36,
+  hard:   28,
 };
 
 function generate(difficulty = 'medium') {
