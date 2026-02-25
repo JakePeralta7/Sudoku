@@ -34,12 +34,6 @@ node server.js
 
 Then open <http://localhost:3000>.
 
-By default the database is written to `/data/leaderboard.db`. Override the path:
-
-```bash
-DB_PATH=./leaderboard.db node server.js
-```
-
 ## Container image
 
 The image is published to the GitHub Container Registry on every push to `main`:
