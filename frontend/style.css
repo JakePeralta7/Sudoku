@@ -302,6 +302,12 @@ main {
 }
 .num-btn:hover { background: var(--surface-alt); }
 .num-btn.erase-btn { color: var(--danger); }
+.num-btn.exhausted {
+  opacity: 0.35;
+  color: var(--text-muted);
+  cursor: default;
+  pointer-events: none;
+}
 
 /* ── Modal base ──────────────────────────────────────────────────── */
 .modal {

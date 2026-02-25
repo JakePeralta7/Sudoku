@@ -132,6 +132,7 @@ function renderBoard() {
   }
   highlightRelated();
   highlightConflicts();
+  updateNumpadState();
 }
 
 function highlightRelated() {
@@ -180,6 +181,22 @@ function hasConflict(row, col, num) {
     }
   }
   return false;
+}
+
+function updateNumpadState() {
+  const counts = new Array(10).fill(0);
+  for (let r = 0; r < 9; r++) {
+    for (let c = 0; c < 9; c++) {
+      const val = state.puzzle[r][c] || state.board[r][c];
+      if (val) counts[val]++;
+    }
+  }
+  numBtns.forEach(btn => {
+    const num = parseInt(btn.dataset.num);
+    if (num >= 1 && num <= 9) {
+      btn.classList.toggle('exhausted', counts[num] >= 9);
+    }
+  });
 }
 
 // ── Cell selection & input ────────────────────────────────────────────────────
