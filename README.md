@@ -2,6 +2,8 @@
 
 A web-based Sudoku game with a persistent leaderboard, served from a containerised Node.js backend.
 
+![Game Screen](./img/game_screen.png)
+
 ## Features
 
 - Three difficulty levels — Easy, Medium, Hard
