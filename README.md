@@ -26,16 +26,6 @@ Then open <http://localhost:3000>.
 
 The SQLite database is stored in the `sudoku-data` named volume and survives container restarts.
 
-### Without Docker
-
-```bash
-cd backend
-npm install
-node server.js
-```
-
-Then open <http://localhost:3000>.
-
 ## Container image
 
 The image is published to the GitHub Container Registry on every push to `main`:
