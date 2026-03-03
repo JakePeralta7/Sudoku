@@ -48,24 +48,17 @@ function applyTheme(theme) {
 }
 
 function initTheme() {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'dark' || saved === 'light') {
-    applyTheme(saved);
-  } else {
-    // Respect system preference, update icon accordingly
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    btnTheme.textContent = prefersDark ? '☀️' : '🌙';
-  }
+  const saved = localStorage.getItem('theme') || 'auto';
+  applyTheme(saved);
 }
 
-btnTheme.addEventListener('click', () => {
-  const current = document.documentElement.getAttribute('data-theme');
-  // Determine effective theme
-  const effective = current === 'dark' ? 'dark'
-    : current === 'light' ? 'light'
-    : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  applyTheme(effective === 'dark' ? 'light' : 'dark');
-});
+function cycleTheme() {
+  const current = localStorage.getItem('theme') || 'auto';
+  const next = current === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+}
+
+btnTheme.addEventListener('click', cycleTheme);
 
 // ── Timer ─────────────────────────────────────────────────────────────────────
 function formatTime(seconds) {
