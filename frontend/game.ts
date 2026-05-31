@@ -1,4 +1,3 @@
-// @ts-nocheck
 'use strict';
 
 // ── State ─────────────────────────────────────────────────────────────────────
@@ -514,4 +513,3 @@ numBtns.forEach(btn => {
   const resumed = await tryResumeSession();
   if (!resumed) await startNewGame();
 })();
-
