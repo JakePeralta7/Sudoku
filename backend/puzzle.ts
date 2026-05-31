@@ -57,7 +57,7 @@ function solve(grid, randomise = false, countOnly = false, limit = 2) {
       grid[row][col] = num;
       const sub = solve(grid, randomise, countOnly, limit);
       if (countOnly) {
-        count += sub;
+        count += Number(sub);
         if (count >= limit) { grid[row][col] = 0; return count; }
       } else {
         if (sub) return true;
